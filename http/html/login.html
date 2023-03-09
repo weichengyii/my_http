@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 36px;
+        }
+
+        form {
+            margin-top: 50px;
+            display: inline-block;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            display: block;
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+            font-size: 18px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+<h1>Login</h1>
+<form action="/login" method="post" onsubmit="return validateForm()">
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" placeholder="Username">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" placeholder="Password">
+    <input type="submit" value="Login">
+</form>
+
+
+<p>
+    <a href="/register">Register</a>
+    <a href="/">Home</a>
+</p>
+
+<script>
+    function validateForm() {
+        // 获取输入的用户名和密码
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+        // 检查用户名是否符合规则
+        if (!/^[1-9]\d{9}$/.test(username)) {
+            alert("用户名必须以数字开头，长度为10位（0除外）");
+            return false;
+        }
+
+        // 检查密码是否符合规则
+        if (!/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}/.test(password)) {
+            alert("密码必须含有大小写字符、数字、和特殊符号，长度至少为8位");
+            return false;
+        }
+
+        // 如果所有验证都通过，返回true
+        return true;
+    }
+</script>
+
+</body>
+</html>

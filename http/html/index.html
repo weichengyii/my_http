@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to My Site</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            color: #444;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 0;
+        }
+
+        p {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        #clock {
+            color: #333333;
+            font-size: 3em;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20%;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to My Site</h1>
+<p>Thank you for visiting my website. Please take a look around and feel free to contact me if you have any questions or
+    comments.</p>
+<p><a href="/login">Login</a></p>
+<div id="clock"></div>
+<script>
+    function updateTime() {
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        hours = (hours < 10 ? "0" : "") + hours;
+        minutes = (minutes < 10 ? "0" : "") + minutes;
+        seconds = (seconds < 10 ? "0" : "") + seconds;
+        var time = hours + ":" + minutes + ":" + seconds;
+        document.getElementById("clock").innerHTML = time;
+    }
+
+    setInterval(updateTime, 1000);
+</script>
+</body>
+</html>
+
